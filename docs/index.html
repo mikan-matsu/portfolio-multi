@@ -4,32 +4,43 @@
   <meta charset="utf-8">
   <title>ポートフォリオサイト</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="ポートフォリオ サンプルサイト">
+  <meta name="description" content="ポートフォリオ サイト">
   <link rel="stylesheet" href="./assets/styles.css">
 </head>
 <body>
-  <!-- ヘッダー -->
   <header class="site-header">
     <div class="container header-inner">
-      <h1 class="brand">ポートフォリオサイト</h1>
+      <h1 class="brand">ポートフォリオ</h1>
+
+      <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="メニュー">
+        ☰
+      </button>
+
       <nav class="nav">
-        <a href="#about-site">このサイトについて</a>
-        <a href="#about-me">自己紹介</a>
-        <a href="#works">制作物</a>
-        <a href="#skills">スキル</a>
-        <a href="#contact">お問い合わせ</a>
+        <div id="nav-links" class="nav-links">
+          <a href="#about-site">このサイトについて</a>
+          <a href="#about-me">自己紹介</a>
+          <a href="#works">制作物</a>
+          <a href="#skills">スキル</a>
+          <a href="#contact">お問い合わせ</a>
+        </div>
       </nav>
     </div>
   </header>
 
-  <!-- メイン -->
   <main>
-    <section id="about-site" class="section">
+    <!-- ヒーロー（1面目を映えさせる） -->
+    <section id="about-site" class="section hero">
       <div class="container">
-        <h2>このサイトについて</h2>
-        <p>
-          こちらは私のポートフォリオサイトです。制作物やスキルをまとめています。ごゆっくりご覧ください。
+        <h2 class="display">つくる、整える、速くする。</h2>
+        <p class="lead">
+          フロントエンド中心のWebエンジニアです。UI/UX・パフォーマンス・アクセシビリティを意識し、
+          小さく美しい体験を積み上げます。
         </p>
+        <div class="cta">
+          <a class="btn primary" href="#works">制作物を見る</a>
+          <a class="btn" href="#contact">問い合わせる</a>
+        </div>
       </div>
     </section>
 
@@ -38,7 +49,7 @@
         <div>
           <h2>自己紹介</h2>
           <p>
-            Webエンジニアとしてフロントエンドを中心に活動しています。UI/UXを意識した設計と実装が得意です。
+            Webエンジニアとしてフロントエンドを中心に活動。読みやすさと再利用性の高いコーディングを心がけています。
           </p>
           <ul class="fact-list">
             <li>所在地: 東京</li>
@@ -47,7 +58,7 @@
           </ul>
         </div>
         <figure class="about-figure">
-          <img src="https://picsum.photos/600/400?grayscale" alt="プロフィール画像">
+          <img src="https://picsum.photos/800/540?grayscale" alt="プロフィール画像">
           <figcaption>プロフィール写真（仮）</figcaption>
         </figure>
       </div>
@@ -57,18 +68,25 @@
       <div class="container">
         <h2>制作物</h2>
         <div class="works-grid">
-          <article class="card">
-            <img src="https://picsum.photos/800/600?1" alt="制作物1">
+          <article class="card lift">
+            <img src="https://picsum.photos/960/720?1" alt="制作物1">
             <div class="card-body">
-              <h3>制作物1</h3>
-              <p>レスポンシブデザインを意識したWebページ。</p>
+              <h3>LP / マイクロインタラクション</h3>
+              <p>軽量アニメーションと画像最適化でLCP改善。</p>
             </div>
           </article>
-          <article class="card">
-            <img src="https://picsum.photos/800/600?2" alt="制作物2">
+          <article class="card lift">
+            <img src="https://picsum.photos/960/720?2" alt="制作物2">
             <div class="card-body">
-              <h3>制作物2</h3>
-              <p>管理画面用デザインシステムの構築。</p>
+              <h3>ダッシュボードUI</h3>
+              <p>トークン設計＆コンポーネント化で保守性向上。</p>
+            </div>
+          </article>
+          <article class="card lift">
+            <img src="https://picsum.photos/960/720?3" alt="制作物3">
+            <div class="card-body">
+              <h3>アクセシブルフォーム</h3>
+              <p>WAI-ARIAとフォーカス管理で操作性を改善。</p>
             </div>
           </article>
         </div>
@@ -79,18 +97,10 @@
       <div class="container">
         <h2>スキル</h2>
         <div class="skills">
-          <div class="skill">
-            <span>HTML/CSS</span>
-            <div class="bar"><span style="width: 90%"></span></div>
-          </div>
-          <div class="skill">
-            <span>JavaScript</span>
-            <div class="bar"><span style="width: 85%"></span></div>
-          </div>
-          <div class="skill">
-            <span>アクセシビリティ</span>
-            <div class="bar"><span style="width: 80%"></span></div>
-          </div>
+          <div class="skill"><span>HTML/CSS</span><div class="bar"><span style="width:92%"></span></div></div>
+          <div class="skill"><span>JavaScript</span><div class="bar"><span style="width:86%"></span></div></div>
+          <div class="skill"><span>アクセシビリティ</span><div class="bar"><span style="width:82%"></span></div></div>
+          <div class="skill"><span>パフォーマンス</span><div class="bar"><span style="width:78%"></span></div></div>
         </div>
       </div>
     </section>
@@ -99,25 +109,16 @@
       <div class="container">
         <h2>お問い合わせ</h2>
         <form class="contact-form" action="#" method="post" onsubmit="return false;">
-          <label>
-            お名前
-            <input type="text" name="name" required>
-          </label>
-          <label>
-            メールアドレス
-            <input type="email" name="email" required>
-          </label>
-          <label>
-            メッセージ
-            <textarea name="message" rows="5" required></textarea>
-          </label>
-          <button class="btn" type="submit">送信</button>
+          <label>お名前<input type="text" name="name" required></label>
+          <label>メールアドレス<input type="email" name="email" required></label>
+          <label>メッセージ<textarea name="message" rows="5" required></textarea></label>
+          <button class="btn primary" type="submit">送信</button>
+          <p class="form-note" id="form-note" aria-live="polite"></p>
         </form>
       </div>
     </section>
   </main>
 
-  <!-- フッター -->
   <footer class="site-footer">
     <div class="container footer-inner">
       <small>© <span id="year"></span> あなたの名前</small>
