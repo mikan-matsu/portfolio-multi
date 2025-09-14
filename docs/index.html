@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
   <meta charset="utf-8">
-  <title>ポートフォリオサイト</title>
+  <title>mikanmatsu</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="ポートフォリオ サイト">
   <link rel="stylesheet" href="./assets/styles.css">
@@ -10,7 +10,6 @@
 <body>
   <header class="site-header">
     <div class="container header-inner">
-      <h1 class="brand">ポートフォリオ</h1>
 
       <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="メニュー">
         ☰
@@ -18,51 +17,56 @@
 
       <nav class="nav">
         <div id="nav-links" class="nav-links">
-          <a href="#about-site">このサイトについて</a>
+          <a href="#about-site">Home</a>
           <a href="#about-me">自己紹介</a>
           <a href="#works">制作物</a>
           <a href="#skills">スキル</a>
-          <a href="#contact">お問い合わせ</a>
         </div>
       </nav>
     </div>
   </header>
 
   <main>
-    <!-- ヒーロー（1面目を映えさせる） -->
     <section id="about-site" class="section hero">
       <div class="container">
-        <h2 class="display">つくる、整える、速くする。</h2>
+        <h2 class="display">Portfolio — Mikan Matsu</h2>
         <p class="lead">
-          フロントエンド中心のWebエンジニアです。UI/UX・パフォーマンス・アクセシビリティを意識し、
-          小さく美しい体験を積み上げます。
+          Webエンジニアです。php,python等を用いて開発、運用保守を行なっています。
         </p>
         <div class="cta">
           <a class="btn primary" href="#works">制作物を見る</a>
-          <a class="btn" href="#contact">問い合わせる</a>
         </div>
       </div>
     </section>
 
     <section id="about-me" class="section">
       <div class="container about-grid">
-        <div>
+        <div class="about-left">
           <h2>自己紹介</h2>
-          <p>
-            Webエンジニアとしてフロントエンドを中心に活動。読みやすさと再利用性の高いコーディングを心がけています。
-          </p>
           <ul class="fact-list">
-            <li>所在地: 東京</li>
-            <li>専門: フロントエンド開発</li>
-            <li>興味: アクセシビリティ、パフォーマンス改善</li>
+            <li>所在地: 沖縄</li>
+            <li>経験年数: 2年</li>
+            <li>主な業務: システムの保守・運用、テスト、バグ調査</li>
+            <li>得意分野: python, php</li>
+            <li>資格: java, aws等</li>
+            <li>目標: 幅広い開発スキルの習得</li>
           </ul>
         </div>
-        <figure class="about-figure">
-          <img src="https://picsum.photos/800/540?grayscale" alt="プロフィール画像">
-          <figcaption>プロフィール写真（仮）</figcaption>
-        </figure>
+
+        <div class="about-right decorative">
+          <div class="img-stack">
+            <img src="./img/okinawa-sea.jpg" alt="沖縄の海">
+          </div>
+          <p>
+            沖縄を拠点にWebエンジニアとして活動しています。<br>
+            日々新しい技術を学びながら、より良いサービスづくりに取り組んでいます。
+          </p>
+        </div>
       </div>
     </section>
+
+
+
 
     <section id="works" class="section">
       <div class="container">
@@ -102,19 +106,6 @@
           <div class="skill"><span>アクセシビリティ</span><div class="bar"><span style="width:82%"></span></div></div>
           <div class="skill"><span>パフォーマンス</span><div class="bar"><span style="width:78%"></span></div></div>
         </div>
-      </div>
-    </section>
-
-    <section id="contact" class="section">
-      <div class="container">
-        <h2>お問い合わせ</h2>
-        <form class="contact-form" action="#" method="post" onsubmit="return false;">
-          <label>お名前<input type="text" name="name" required></label>
-          <label>メールアドレス<input type="email" name="email" required></label>
-          <label>メッセージ<textarea name="message" rows="5" required></textarea></label>
-          <button class="btn primary" type="submit">送信</button>
-          <p class="form-note" id="form-note" aria-live="polite"></p>
-        </form>
       </div>
     </section>
   </main>
