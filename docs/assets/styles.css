@@ -163,7 +163,12 @@ body{
   margin: 12px auto 0;
   border-radius: 2px;
 }
-
+.about-right img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain; /* ← 見切れ防止 */
+}
 /* レスポンシブ */
 @media (max-width:1024px){
   .works-grid{grid-template-columns:repeat(2,1fr)}
