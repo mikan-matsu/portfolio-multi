@@ -85,7 +85,18 @@ body{
 
 /* グリッド/カード */
 .about-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:calc(var(--space)*1.2)}
-.about-figure img{width:100%;display:block;border-radius:20px;border:1px solid var(--border);box-shadow:0 12px 30px rgba(0,0,0,.07)}
+.about-figure img {
+  width: 100%;
+  display: block;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, .07);
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  object-fit: contain; /* ← 見切れ防止 */
+}
 .fact-list{padding-left:18px;color:var(--muted)}
 
 .works-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:calc(var(--space)*.9)}
