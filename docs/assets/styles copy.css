@@ -12,9 +12,8 @@
 *{box-sizing:border-box}
 html,body{margin:0;padding:0}
 body{
-  font-family: system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;
-  color:var(--fg);
-  line-height:1.7;
+  font-family: system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;
+  color:var(--fg); line-height:1.7;
   background:#fff;
   -webkit-font-smoothing:antialiased;
   text-rendering:optimizeLegibility;
@@ -73,52 +72,9 @@ body{
 .lead{font-size:clamp(15px,1.6vw,18px);color:var(--muted);max-width:60ch;margin:0 0 18px}
 .cta{display:flex;gap:12px;flex-wrap:wrap}
 
-/* ヒーロー内レイアウト */
-.hero .container{
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  gap:24px;
-}
-.hero .icon-title{
-  display:flex;
-  flex-direction:row;
-  align-items:center;
-  gap:20px;
-}
-.profile-icon{
-  width:150px;
-  height:auto;
-  border-radius:50%;
-  border:3px solid #333;
-}
-
-/* スクロール誘導丸矢印 */
-.scroll-indicator{
-  position:absolute;
-  left:50%;
-  bottom:28px;
-  transform:translateX(-50%);
-  width:48px;height:48px;
-  border-radius:999px;
-  border:2px solid #111827;
-  color:#111827;
-  display:grid;place-items:center;
-  opacity:.85;
-  background:#ffffffb3;
-  backdrop-filter:saturate(140%) blur(6px);
-  animation:bounce 1.6s infinite ease-in-out;
-}
-.chevron{width:26px;height:26px;display:block}
-@keyframes bounce{
-  0%,100%{transform:translate(-50%,0)}
-  50%{transform:translate(-50%,10px)}
-}
-
 /* ヘッダー/ナビ */
 .site-header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.8);backdrop-filter:saturate(140%) blur(10px);border-bottom:1px solid var(--border)}
-.header-inner{display:flex;align-items:center;justify-content:flex-end;padding:12px 0}
+.header-inner{display:flex;align-items:center;justify-content:space-between;padding:12px 0}
 .brand{font-weight:800;letter-spacing:.3px}
 
 .nav-links{display:flex;gap:10px;align-items:center}
@@ -129,36 +85,34 @@ body{
 
 /* グリッド/カード */
 .about-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:calc(var(--space)*1.2)}
-.about-figure img{
-  width:100%;
-  display:block;
-  border-radius:20px;
-  border:1px solid var(--border);
-  box-shadow:0 12px 30px rgba(0,0,0,.07);
-  height:auto;
-  object-fit:contain; /* 見切れ防止 */
+.about-figure img {
+  width: 100%;
+  display: block;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, .07);
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  object-fit: contain; /* ← 見切れ防止 */
 }
 .fact-list{padding-left:18px;color:var(--muted)}
 
 .works-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:calc(var(--space)*.9)}
-.card{background:var(--card);border:1px solid var(--border);border-radius:20px;overflow:hidden;box-shadow:0 8px 22px rgba(0,0,0,.06);transition:transform .18s ease, box-shadow .18s ease}
+.card{background:var(--card);border:1px solid var(--border);border-radius:20px;overflow:hidden;box-shadow:0 8px 22px rgba(0,0,0,.06)}
 .card img{width:100%;display:block;aspect-ratio:4/3;object-fit:cover}
 .card-body{padding:16px}
 .card h3{margin:0 0 6px;font-size:18px}
+.lift{transition:transform .18s ease, box-shadow .18s ease}
 .lift:hover{transform:translateY(-6px);box-shadow:0 16px 32px rgba(0,0,0,.12)}
 
-/* スキルバー（Observerで伸ばす前提） */
+/* スキルバー */
 .skills{display:grid;gap:12px}
 .skill{display:grid;grid-template-columns:160px 1fr;gap:12px;align-items:center}
 .skill span{font-weight:600}
 .bar{height:12px;background:#eef2ff;border:1px solid #dbeafe;border-radius:999px;overflow:hidden}
-.bar>span{
-  display:block;height:100%;
-  background:linear-gradient(90deg,var(--accent),var(--accent-2));
-  transform-origin:left;
-  transform:scaleX(.1);                 /* 初期は短く */
-  transition:transform .8s ease;        /* in-viewで1.0へ */
-}
+.bar>span{display:block;height:100%;background:linear-gradient(90deg,var(--accent),var(--accent-2))}
 
 /* フォーム */
 .contact-form{display:grid;gap:12px;max-width:640px}
@@ -181,10 +135,6 @@ body{
 .reveal{opacity:0;transform:scale(.96) translateY(36px);filter:blur(5px);transition:opacity .45s ease-out,transform .45s ease-out,filter .45s ease-out}
 .reveal.in{opacity:1;transform:scale(1) translateY(0);filter:blur(0)}
 
-/* セクション全体のフェード（既存Observerのfade-inに対応） */
-.section{opacity:0;transform:translateY(40px);transition:opacity .6s ease-out, transform .6s ease-out}
-.section.fade-in{opacity:1;transform:translateY(0)}
-
 /* ヘッダー影/縮小 */
 .site-header.scrolled{box-shadow:0 10px 24px rgba(0,0,0,.06)}
 .site-header.scrolled .header-inner{padding:8px 0;transition:padding .2s ease}
@@ -195,7 +145,7 @@ body{
 .to-top:hover{background:#f3f4f6}
 
 /* 見出しロゴ風＋下線100% */
-.display{
+.display {
   font-size: clamp(32px, 5vw, 56px);
   font-weight: 800;
   text-align: center;
@@ -204,18 +154,57 @@ body{
   margin-bottom: 24px;
   position: relative;
 }
-.display::after{
-  content:"";
-  display:block;
-  width:100%;
-  height:4px;
-  background:#0078ff;
-  margin:12px auto 0;
-  border-radius:2px;
+.display::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 4px;
+  background: #0078ff;
+  margin: 12px auto 0;
+  border-radius: 2px;
+}
+.about-right img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain; 
 }
 
-/* 画像の見切れ防止 */
-.about-right img{width:100%;height:auto;display:block;object-fit:contain}
+.section {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity .6s ease-out, transform .6s ease-out;
+}
+
+.section.fade-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* コンテナは縦並びベースにする（ボタンは下に残す） */
+.hero .container {
+  display: flex;
+  flex-direction: column; /* 縦並び */
+  align-items: center;
+  justify-content: center;
+  gap: 24px; /* セクション全体の縦の余白 */
+}
+
+/* アイコンとタイトルを横並びにまとめるラッパ */
+.hero .icon-title {
+  display: flex;
+  flex-direction: row;    /* 横並び */
+  align-items: center;    /* 高さを中央揃え */
+  gap: 20px;              /* アイコンと文字の間隔 */
+}
+
+.profile-icon {
+  width: 150px;
+  height: auto;
+  border-radius: 50%;
+  border: 3px solid #333;
+}
+
 
 /* レスポンシブ */
 @media (max-width:1024px){
@@ -228,3 +217,4 @@ body{
   .nav-links.open{display:flex}
   .section{min-height:auto;padding:56px 0}
 }
+

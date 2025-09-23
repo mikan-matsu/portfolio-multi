@@ -19,7 +19,7 @@
         <div id="nav-links" class="nav-links">
           <a href="#about-site">Home</a>
           <a href="#about-me">自己紹介</a>
-          <a href="#works">制作物</a>
+          <a href="#works">成果物</a>
           <a href="#skills">スキル</a>
         </div>
       </nav>
@@ -29,38 +29,47 @@
   <main>
     <section id="about-site" class="section hero">
       <div class="container">
-        <h2 class="display">Portfolio — Mikan Matsu</h2>
-        <p class="lead">
-          Webエンジニアです。php,python等を用いて開発、運用保守を行なっています。
-        </p>
-        <div class="cta">
-          <a class="btn primary" href="#works">制作物を見る</a>
+        <div class="icon-title" data-animate="fade-up">
+          <img src="./img/profile_icon.jpg" alt="沖縄の海" class="profile-icon">
+          <h2 class="display">MikaMatsu_Portfolio</h2>
         </div>
+
+        <div class="cta" data-animate="fade-up-delayed">
+          <a class="btn primary" href="#works">成果物を見る</a>
+        </div>
+
+        <!-- 2) スクロール促しの下矢印を追加（ヒーロー末尾に追加） -->
+        <a href="#about-me" class="scroll-indicator" aria-label="次のセクションへ">
+          <svg viewBox="0 0 24 24" aria-hidden="true" class="chevron">
+            <path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </a>
       </div>
     </section>
 
     <section id="about-me" class="section">
-      <div class="container about-grid">
-        <div class="about-left">
-          <h2>自己紹介</h2>
-          <ul class="fact-list">
-            <li>所在地: 沖縄</li>
-            <li>経験年数: 2年</li>
-            <li>主な業務: システムの保守・運用、テスト、バグ調査</li>
-            <li>得意分野: python, php</li>
-            <li>資格: java, aws等</li>
-            <li>目標: 幅広い開発スキルの習得</li>
-          </ul>
-        </div>
-
-        <div class="about-right decorative">
-          <div class="img-stack">
-            <img src="./img/okinawa-sea.jpg" alt="沖縄の海">
+      <div class="container about-grid" data-animate="fade-up">
+        <div class="container about-grid">
+          <div class="about-left">
+            <h2>自己紹介</h2>
+            <ul class="fact-list">
+              <li>所在地: 沖縄</li>
+              <li>経験年数: 2年</li>
+              <li>主な業務: システムの保守・運用、テスト、バグ調査</li>
+              <li>得意分野: python, php</li>
+              <li>資格: java, aws等</li>
+            </ul>
           </div>
-          <p>
-            沖縄を拠点にWebエンジニアとして活動しています。<br>
-            日々新しい技術を学びながら、より良いサービスづくりに取り組んでいます。
-          </p>
+
+          <div class="about-right decorative">
+            <div class="img-stack">
+              <img src="./img/okinawa-sea.jpg" alt="沖縄の海">
+            </div>
+            <p>
+              沖縄県出身のwebエンジニアです。<br>
+              日々新しい技術を学びながら、より良いサービスづくりに取り組んでいます。
+            </p>
+          </div>
         </div>
       </div>
     </section>
@@ -69,36 +78,18 @@
 
 
     <section id="works" class="section">
-      <div class="container">
-        <h2>制作物</h2>
+      <div class="container" data-animate="fade-up">
+        <h2>成果物</h2>
         <div class="works-grid">
-          <article class="card lift">
-            <img src="https://picsum.photos/960/720?1" alt="制作物1">
-            <div class="card-body">
-              <h3>LP / マイクロインタラクション</h3>
-              <p>軽量アニメーションと画像最適化でLCP改善。</p>
-            </div>
-          </article>
-          <article class="card lift">
-            <img src="https://picsum.photos/960/720?2" alt="制作物2">
-            <div class="card-body">
-              <h3>ダッシュボードUI</h3>
-              <p>トークン設計＆コンポーネント化で保守性向上。</p>
-            </div>
-          </article>
-          <article class="card lift">
-            <img src="https://picsum.photos/960/720?3" alt="制作物3">
-            <div class="card-body">
-              <h3>アクセシブルフォーム</h3>
-              <p>WAI-ARIAとフォーカス管理で操作性を改善。</p>
-            </div>
-          </article>
+          <article class="card lift" data-animate="fade-up"><img src="https://picsum.photos/960/720?1" alt="制作物1"></article>
+          <article class="card lift" data-animate="fade-up"><img src="https://picsum.photos/960/720?2" alt="制作物2"></article>
+          <article class="card lift" data-animate="fade-up"><img src="https://picsum.photos/960/720?3" alt="制作物3"></article>
         </div>
       </div>
     </section>
 
     <section id="skills" class="section">
-      <div class="container">
+      <div class="container" data-animate="fade-up">
         <h2>スキル</h2>
         <div class="skills">
           <div class="skill"><span>HTML/CSS</span><div class="bar"><span style="width:92%"></span></div></div>
@@ -112,7 +103,7 @@
 
   <footer class="site-footer">
     <div class="container footer-inner">
-      <small>© <span id="year"></span> あなたの名前</small>
+      <small>© <span id="year"></span>Matsu</small>
     </div>
   </footer>
 
