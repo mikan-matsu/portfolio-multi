@@ -1,16 +1,37 @@
 (function () {
-  // 1) ナビ開閉（aria連動）
+  // === ナビゲーション制御 ====================
   const toggle = document.querySelector('.nav-toggle');
-  const links = document.getElementById('nav-links');
+  const links = document.querySelector('.nav-links');
+
   if (toggle && links) {
-    toggle.addEventListener('click', () => {
+    // トグルボタン押下
+    toggle.addEventListener('click', (e) => {
+      e.stopPropagation();
       const open = links.classList.toggle('open');
-      links.setAttribute('aria-expanded', String(open));
       toggle.setAttribute('aria-expanded', String(open));
+      links.setAttribute('aria-expanded', String(open));
+    });
+
+    // 外側クリックで閉じる
+    document.addEventListener('click', (e) => {
+      if (links.classList.contains('open') && !links.contains(e.target) && e.target !== toggle) {
+        links.classList.remove('open');
+        toggle.setAttribute('aria-expanded', "false");
+        links.setAttribute('aria-expanded', "false");
+      }
+    });
+
+    // メニューリンククリックで閉じる
+    links.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        links.classList.remove('open');
+        toggle.setAttribute('aria-expanded', "false");
+        links.setAttribute('aria-expanded', "false");
+      });
     });
   }
 
-  // 2) スクロールでヘッダー縮小／ToTop表示
+  // === ヘッダー縮小 & ToTopボタン制御 ====================
   const header = document.querySelector('.site-header');
   const toTop = document.querySelector('.to-top');
   const onScroll = () => {
@@ -25,14 +46,16 @@
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 
-  // 3) トップへ戻る
-  toTop?.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+  // === トップへ戻る ====================
+  toTop?.addEventListener('click', () =>
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  );
 
-  // 4) フッター年
+  // === フッター年自動更新 ====================
   const y = document.getElementById('year');
   if (y) y.textContent = new Date().getFullYear();
 
-  // 5) アンカーのスムーズスクロール（ヘッダー分オフセット・簡易）
+  // === アンカーのスムーズスクロール ====================
   const prefersReduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   document.querySelectorAll('a[href^="#"]').forEach(a => {
     a.addEventListener('click', e => {
@@ -48,7 +71,7 @@
     });
   });
 
-  // 6) 出現アニメーション（Observerを1本に統合）
+  // === 出現アニメーション ====================
   const observeTargets = [
     ...document.querySelectorAll('[data-animate]'),
     ...document.querySelectorAll('.reveal'),
@@ -59,32 +82,24 @@
       entries.forEach(e => {
         if (!e.isIntersecting) return;
         const t = e.target;
+        t.classList.add('in', 'fade-in');
 
-        // 共通: in / fade-in を付与（どちらのCSSでも効くように）
-        t.classList.add('in');
-        t.classList.add('fade-in');
-
-        // スキルバーが含まれる場合は伸ばす
+        // スキルバー制御
         if ((t.id === 'skills') || t.closest?.('#skills')) {
           document.querySelectorAll('.skill .bar > span').forEach(b => {
             b.style.transform = 'scaleX(1)';
           });
         }
-
         io.unobserve(t);
       });
     }, { threshold: 0.15 });
 
     observeTargets.forEach(el => io.observe(el));
   } else {
-    // フォールバック
-    observeTargets.forEach(el => {
-      el.classList.add('in');
-      el.classList.add('fade-in');
-    });
+    observeTargets.forEach(el => el.classList.add('in', 'fade-in'));
   }
 
-  // 7) 簡易送信メッセージ
+  // === 簡易送信メッセージ ====================
   const sendBtn = document.getElementById('send-btn');
   const note = document.getElementById('form-note');
   sendBtn?.addEventListener('click', () => {
