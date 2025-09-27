@@ -221,12 +221,55 @@ body{
 @media (max-width:1024px){
   .works-grid{grid-template-columns:repeat(2,1fr)}
 }
-@media (max-width:768px){
-  .about-grid{grid-template-columns:1fr}
-  .nav-toggle{display:block}
-  .nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:#fff;border-bottom:1px solid var(--border);padding:10px;gap:8px;flex-direction:column}
-  .nav-links.open{display:flex}
-  .section{min-height:auto;padding:56px 0}
+@media (max-width:768px) {
+  .about-grid {
+    grid-template-columns: 1fr
+  }
+
+  .nav-toggle {
+    display: block
+  }
+
+/* ハンバーガーボタンの位置調整 */
+.nav-toggle {
+  margin-right: 12px;   /* 右に余白をつける */
+}
+
+/* ナビパネル */
+.nav-links {
+  position: absolute;
+  top: -100%;              /* 初期は画面外（上） */
+  right: 0;                /* 右寄せ */
+  width: 140px;            /* 狭めの固定幅 */
+  background: #fff;
+  border-left: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  gap: 12px;
+  box-shadow: -4px 4px 12px rgba(0,0,0,.15);
+  transition: top 0.35s ease;
+  z-index: 1000;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* 開いたとき */
+.nav-links.open {
+  top: 100%;               /* ヘッダー直下に表示 */
+  opacity: 1;
+  pointer-events: auto;
+}
+
+
+
+
+
+  .section {
+    min-height: auto;
+    padding: 56px 0
+  }
 }
 
 @media (max-width:582px){
