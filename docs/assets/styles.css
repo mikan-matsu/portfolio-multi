@@ -228,3 +228,33 @@ body{
   .nav-links.open{display:flex}
   .section{min-height:auto;padding:56px 0}
 }
+
+@media (max-width:582px){
+  /* アイコン＋タイトル縦並び */
+  .hero .icon-title{
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+  }
+
+  /* アイコン縮小 */
+  .profile-icon{
+    width: 100px;
+    height: auto;
+  }
+
+  /* タイトル縮小 */
+  .display{
+    font-size: clamp(20px, 6vw, 28px);
+  }
+
+  /* ボタン縦並び＆縮小 */
+  .cta{
+    flex-direction: column;
+    align-items: center;
+  }
+  .cta .btn{
+    font-size: 14px;
+    padding: 8px 12px;
+  }
+}
