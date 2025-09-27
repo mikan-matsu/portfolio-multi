@@ -125,7 +125,14 @@ body{
 .nav a{color:var(--muted);text-decoration:none;padding:8px 12px;border-radius:999px;border:1px solid transparent}
 .nav a:hover,.nav a.active{color:#111827;border-color:var(--border);background:#fff}
 
-.nav-toggle{display:none;background:#fff;border:1px solid var(--border);border-radius:10px;padding:8px 10px;cursor:pointer}
+.nav-toggle {
+  display: none;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 8px 10px;
+  cursor: pointer
+}
 
 /* グリッド/カード */
 .about-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:calc(var(--space)*1.2)}
@@ -227,20 +234,24 @@ body{
   }
 
   .nav-toggle {
-    display: block
-  }
+    display: block;
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    cursor: pointer;
 
-/* ハンバーガーボタンの位置調整 */
-.nav-toggle {
-  margin-right: 12px;   /* 右に余白をつける */
-}
+    /* サイズを大きくする */
+    font-size: 26px;      /* 中の☰アイコンを大きく */
+    padding: 6px 10px;   /* ボタン自体を大きく */
+    margin-right: 12px;   /* 右端から少し余白 */
+  }
 
 /* ナビパネル */
 .nav-links {
   position: absolute;
   top: -100%;              /* 初期は画面外（上） */
   right: 0;                /* 右寄せ */
-  width: 140px;            /* 狭めの固定幅 */
+  width: 130px;            /* 狭めの固定幅 */
   background: #fff;
   border-left: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
